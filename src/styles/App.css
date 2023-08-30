@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#root{
+    display: flex;
+    justify-content: center;
+}
+
+#basket{
+    position: fixed;
+    height: 100px;
+    background-color: #00CC00;
+    border-radius: 50px;
+    padding: 20px;
+    bottom: 80px;
+    right: 80px;
+}
+
+#basketCount{
+    display: flex;
+    position: fixed;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF0000;
+    color: white;
+    border-radius: 30px;
+    padding: 5px;
+    bottom: 155px;
+    right: 80px;
+}
+
+.Icon{
+    height: 60px;
+    margin: 10px;
+}
+
+.Header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    background-color: #39E639;
+    padding: 30px;
+}
+.ButtonHeader{
+    background-color: #39E639;
+    color: white;
+    height: 40px;
+    width: 120px;
+    border: 0px;
+    font-size: 30px;
+}
+.ButtonHeader:hover{
+    background-color: #00CC00;
+}
+
+.ButtonHeader:active{
+    color: #67E667;
+    background-color: #008500;
+}
+
+.App{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    row-gap: 2vh;
+}
+
+.ProductList{
+    width: 90vw;
+    display: grid;
+
+    /*grid-auto-columns: minmax(auto, 30%);*/
+    justify-content: space-between;
+    justify-items: center;
+    column-gap: 2vw;
+    row-gap: 2vh;
+    grid-template-columns: repeat(3, 30vw);
+}
+
+.Product>img{
+    width: 25vw;
+}
+
+.Product{
+
+    text-align: center;
+    justify-items: center;
+}
+
+.ButtonBuy{
+    background-color: #FF0000;
+    color: white;
+    height: 40px;
+    width: 120px;
+
+    border: 0px;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.ButtonBuy:hover{
+    background-color: #A60000;
+}
