@@ -1,0 +1,17 @@
+.ButtonHeader{
+    background-color: #39E639;
+    color: white;
+    height: 80px;
+    width: 120px;
+    border: 0px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.ButtonHeader:hover{
+    background-color: #00CC00;
+}
+
+.ButtonHeader:active{
+    color: #67E667;
+    background-color: #008500;
+}

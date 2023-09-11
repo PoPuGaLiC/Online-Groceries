@@ -1,15 +1,21 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
-const BusketItem = () => {
-    const [busketCount,setCount] = useState(0)
-    function increment(){
-        setCount(busketCount+1)
-    }
+const BusketItem = (props) => {
+
     return (
-        <div>
-            <img onClick={increment} id = "basket" src={require('../img/basket.png')} alt={"description "} />
-            <div id = "basketCount">{busketCount}</div>
-        </div>
+        <button onClick = {props.modal}>
+            <img  id = "basket" src={require('../img/basket.png')} alt={"description "} />
+            {props.busketCount!==0
+                ?
+                props.busketCount<100
+                    ?
+                    <div id = "basketCount">{props.busketCount}</div>
+                    :
+                    <div id = "basketCount">99+</div>
+                :
+                <div></div>}
+
+        </button>
     );
 };
 

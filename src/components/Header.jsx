@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonHeader from "./ButtonHeader";
+import ButtonHeader from "./UI/buttons/ButtonHeader";
 const Header = () => {
     return (
         <div className="Header">
@@ -8,8 +8,8 @@ const Header = () => {
             <ButtonHeader/>
             <ButtonHeader/>
             <ButtonHeader/>
-            <div>
-                <input  type="text" size="40"/>
+            <div className="search">
+                <input type="text" size="40"/>
                 <button>click</button>
             </div>
 

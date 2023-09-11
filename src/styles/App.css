@@ -16,18 +16,19 @@
     padding: 20px;
     bottom: 80px;
     right: 80px;
+    cursor: pointer;
 }
 
 #basketCount{
     display: flex;
     position: fixed;
     font-size: 20px;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #FF0000;
+    background-color: #FFA400;
     color: white;
     border-radius: 30px;
     padding: 5px;
@@ -45,65 +46,86 @@
     display: flex;
     justify-content: space-between;
     justify-items: center;
+    align-items: center;
     background-color: #39E639;
     padding: 30px;
 }
-.ButtonHeader{
-    background-color: #39E639;
+
+.search{
+    align-items: center;
+    justify-items: center;
+}
+.search>input{
+    background-color: white;
+    border: 0px;
+    height: 40px;
+    font-size: 30px;
+    width: 30vw;
+}
+
+.search>button{
+    background-color: #FFA400;
     color: white;
     height: 40px;
     width: 120px;
+    cursor: pointer;
     border: 0px;
+    /*border-radius: 10px;*/
     font-size: 30px;
 }
-.ButtonHeader:hover{
-    background-color: #00CC00;
-}
 
-.ButtonHeader:active{
-    color: #67E667;
-    background-color: #008500;
+.search>button:active{
+    background-color: #AF7000;
+    color: white;
 }
 
 .App{
     display: grid;
     align-items: center;
     justify-items: center;
-    row-gap: 2vh;
+
 }
 
 .ProductList{
-    width: 90vw;
     display: grid;
-
+    margin: 30px;
+    width: 95vw;
     /*grid-auto-columns: minmax(auto, 30%);*/
     justify-content: space-between;
     justify-items: center;
-    column-gap: 2vw;
-    row-gap: 2vh;
-    grid-template-columns: repeat(3, 30vw);
+    align-content: space-between;
+    align-items: center;
+    row-gap: 1vw;
+    grid-template-columns: repeat(6, 15vw);
+    background-color: lightgrey;
+    padding: 2vh;
 }
 
 .Product>img{
-    width: 25vw;
+    width: 12vw;
+    height: 10vw;
+    border: 3px solid #00CC00;
+
 }
 
 .Product{
-
+    padding: 10px;
     text-align: center;
     justify-items: center;
+    background-color: white;
 }
 
-.ButtonBuy{
-    background-color: #FF0000;
-    color: white;
-    height: 40px;
-    width: 120px;
-
-    border: 0px;
-    border-radius: 10px;
-    font-size: 30px;
+.BusketModalItem{
+    display: flex;
+    font-size: 14px;
+    background-color: rgba(0,0,0,0.1);
+    margin: 2px;
+    align-items: center;
 }
-.ButtonBuy:hover{
-    background-color: #A60000;
+
+.BusketModalItem>img{
+    height: 50px;
+    width: 60px;
+    border: 3px solid #00CC00;
+    margin: 5px;
 }

@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 
-import ButtonBuy from "./ButtonBuy";
-const ProductItem = (props) => {
+import ButtonBuy from "./UI/buttons/ButtonBuy";
+const ProductItem = ({busket, ...props}) => {
     // const [path,setPhoto] = useState()
-    console.log(props)
+
     return (
         <div className='Product'>
-            <img src={require('../img/cat.jpg')} alt={"description "} />
-            <div>{props.product.name}</div>
+            <img src={require('../img/products/'+props.product.imageName)} alt={"description "} />
+            <h1>{props.product.name}</h1>
             <div>{props.product.description}</div>
-            <ButtonBuy/>
+            <ButtonBuy busket={busket} id = {props.id} availability={props.product.availability}/>
         </div>
     );
 };
