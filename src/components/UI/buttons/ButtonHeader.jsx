@@ -1,9 +1,14 @@
 import React from 'react';
-import classes from "./ButtonHeader.module.css"
+import cl from "./ButtonHeader.module.css"
 
-const ButtonHeader = () => {
+
+const ButtonHeader = (props) => {
+    const rootClasses =[cl.ButtonHeader]
+    if(props.active){
+        rootClasses.push(cl.active)
+    }
     return (
-        <button className={classes.ButtonHeader}>click</button>
+        <button className={rootClasses.join(" ")} >{props.name}</button>
     );
 };
 

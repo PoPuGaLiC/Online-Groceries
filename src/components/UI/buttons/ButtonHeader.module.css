@@ -1,17 +1,28 @@
 .ButtonHeader{
     background-color: #39E639;
     color: white;
-    height: 80px;
-    width: 120px;
+    height: 70px;
+    min-width: 200px;
     border: 0px;
     font-size: 30px;
     cursor: pointer;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }
 .ButtonHeader:hover{
-    background-color: #00CC00;
+    box-shadow: inset 40px 40px 40px 40px rgba(0, 0, 0, 0.25);
+    /*background-color: #00CC00;*/
 }
 
 .ButtonHeader:active{
     color: #67E667;
+    background-color: #008500;
+}
+
+.ButtonHeader.active{
     background-color: #008500;
 }

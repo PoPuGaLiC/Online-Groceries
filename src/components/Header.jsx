@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ButtonHeader from "./UI/buttons/ButtonHeader";
-const Header = () => {
+import "../styles/Header.css"
+const Header = (props) => {
+
     return (
         <div className="Header">
             <img className="Icon" src={require('../img/apple.png')} alt={"description "} />
-            <ButtonHeader/>
-            <ButtonHeader/>
-            <ButtonHeader/>
-            <ButtonHeader/>
-            <div className="search">
-                <input type="text" size="40"/>
-                <button>click</button>
+            <div className="buttons">
+                {props.pages.map(button=> {return <ButtonHeader key = {button.id} name = {button.name} active = {button.active}/>})}
             </div>
-
         </div>
     );
 };

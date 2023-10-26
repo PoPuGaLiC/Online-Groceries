@@ -3,17 +3,21 @@
     color: white;
     height: 40px;
     width: 120px;
-
     border: 0px;
     border-radius: 10px;
     font-size: 30px;
     margin: 10px;
     cursor: pointer;
 }
-.ButtonBuy:hover{
-    background-color: #AF7000;
+.ButtonBuy:enabled:hover{
+    box-shadow: inset 40px 40px 40px 40px rgba(0, 0, 0, 0.09);
 }
 
 .ButtonBuy:disabled{
     background-color: grey;
+}
+
+.ButtonBuy:enabled:active{
+    background-color: #c27b00;
+    color: #ffebcf;
 }

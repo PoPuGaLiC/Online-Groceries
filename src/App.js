@@ -1,58 +1,65 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ProductList from "./components/ProductList";
 import './styles/App.css'
 import Header from "./components/Header";
 import BusketItem from "./components/BusketItem";
 import ModalBusket from "./components/UI/modal/ModalBusket";
-import BusketModalItem from "./components/BusketModalItem";
-import ProductItem from "./components/ProductItem";
+import Search from "./components/UI/input/Search";
 function App() {
     const [busketCount,setCount] = useState(0);
     const [modal, setModal] = useState(false);
     const [productBusket, setProductBusket] = useState([])
     const [products, setProducts] = useState([
-        {id:1, name: "Молоко", description: "Пастеризованное молоко", imageName: "milk.jpg", availability: true,},
-        {id:2, name: "Яблоко", description: "Яблоко Golden", imageName: "apple.jpg", availability: true,},
-        {id:3, name: "Морковь", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: false,},
-        {id:4, name: "Морковь", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: true,},
+        {id:1, name: "Молоко", description: "Пастеризованное молоко", imageName: "milk.jpg", availability: true, cost: 34.56, type: "milk",},
+        {id:2, name: "Яблоко", description: "Яблоко Golden", imageName: "apple.jpg", availability: true, cost: 32.67, type: "fruit",},
+        {id:3, name: "Морковь Греческая", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: false, cost: 87.23, type: "fruit",},
+        {id:4, name: "Морковь", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: true, cost: 27.23, type: "vegetable",},
+        {id:5, name: "Морковь Греческая", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: false, cost: 87.23, type: "fruit",},
+        {id:6, name: "Морковь", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: true, cost: 27.23, type: "vegetable",},
+        {id:7, name: "Морковь Греческая", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: false, cost: 87.23, type: "fruit",},
+        {id:8, name: "Морковь", description: "Морковь Витаминная", imageName: "carrot.jpeg", availability: true, cost: 27.23, type: "vegetable",},
     ])
+    const [pages, setPages] = useState([
+        {id:"catalog", name:"Каталог", active: true},
+        {id:"stores", name:"Магазины", active: false},
+        {id:"discounts", name:"Скидки", active: false},
 
+    ]);
+    const [searchQuery, setSearchQuery] = useState('')
 
-    function increment(){
-
-        setCount(busketCount+1)
+    function changeBasketCount(){
+        setCount(productBusket.reduce((sum,p)=>sum+p.count,0))
     }
 
-    function changeProductBusket(productID){
+    useEffect(()=>{
+        changeBasketCount()
+    },[productBusket])
 
-        if (productBusket.filter(p=>p.id===productID).length>0){
-            let count = productBusket.find(x=>x.id===productID).count
-            setProductBusket([...productBusket.filter(p=>p.id!==productID), {id:productID, count:count+1}])
+    function changeProductBusket(productID, count){
+        if (productBusket.find(x=>x.id===productID)){
+            if(count===0){
+                setProductBusket([...productBusket.filter(p=>p.id!==productID)].sort((a,b)=>{return a.id-b.id}))
+            }else{
+                setProductBusket([...productBusket.filter(p=>p.id!==productID), {id:productID, count:count}].sort((a,b)=>{return a.id-b.id}))
+            }
         } else{
-            setProductBusket([...productBusket, {id:productID, count:1}])
+            setProductBusket([...productBusket, {id:productID, count:count}].sort((a,b)=>{return a.id-b.id}))
         }
-
-        increment()
     }
-
-
 
     return (
     <div className="App">
-
-        <ModalBusket visible={modal} setVisible={setModal}>
-            <h1>Корзина</h1>
-            <div>
-                {productBusket.length > 0
-                    ? productBusket.map(product => {return <BusketModalItem key={product.id} imageName={products.find(x=>x.id===product.id).imageName} name={products.find(x=>x.id===product.id).name} id={product.id} value={product.count}/>;})
-                    :<h1>Корзина пуста</h1>
-                }
+        <Header pages = {pages} searchQuery={searchQuery}/>
+        <div id="catalog">
+            <ModalBusket visible={modal} setVisible={setModal} productBusket={productBusket} products = {products} changeProductBusket = {changeProductBusket}/>
+            <div id="field">
+                <div id="filter">
+                    <Search/>
+                </div>
+                <ProductList busket = {changeProductBusket} productBusket = {productBusket} products = {products}/>
             </div>
-
-        </ModalBusket>
-        <Header/>
-        <ProductList busket={changeProductBusket} products={products}/>
-        <BusketItem modal={()=> setModal(true)} busketCount = {busketCount}/>
+            <BusketItem modal = {()=> setModal(true)} busketCount = {busketCount}/>
+        </div>
     </div>
   );
 }

@@ -2,81 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial;
 }
 #root{
     display: flex;
     justify-content: center;
-}
-
-#basket{
-    position: fixed;
-    height: 100px;
-    background-color: #00CC00;
-    border-radius: 50px;
-    padding: 20px;
-    bottom: 80px;
-    right: 80px;
-    cursor: pointer;
-}
-
-#basketCount{
-    display: flex;
-    position: fixed;
-    font-size: 20px;
-    height: 35px;
-    width: 35px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFA400;
-    color: white;
-    border-radius: 30px;
-    padding: 5px;
-    bottom: 155px;
-    right: 80px;
-}
-
-.Icon{
-    height: 60px;
-    margin: 10px;
-}
-
-.Header{
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    align-items: center;
-    background-color: #39E639;
-    padding: 30px;
-}
-
-.search{
-    align-items: center;
-    justify-items: center;
-}
-.search>input{
-    background-color: white;
-    border: 0px;
-    height: 40px;
-    font-size: 30px;
-    width: 30vw;
-}
-
-.search>button{
-    background-color: #FFA400;
-    color: white;
-    height: 40px;
-    width: 120px;
-    cursor: pointer;
-    border: 0px;
-    /*border-radius: 10px;*/
-    font-size: 30px;
-}
-
-.search>button:active{
-    background-color: #AF7000;
-    color: white;
 }
 
 .App{
@@ -89,43 +19,53 @@
 .ProductList{
     display: grid;
     margin: 30px;
-    width: 95vw;
     /*grid-auto-columns: minmax(auto, 30%);*/
-    justify-content: space-between;
-    justify-items: center;
-    align-content: space-between;
-    align-items: center;
-    row-gap: 1vw;
-    grid-template-columns: repeat(6, 15vw);
+    justify-content: space-evenly;
+    grid-template-columns: repeat(4, 1fr);
     background-color: lightgrey;
-    padding: 2vh;
+    padding: 10px;
+
 }
 
 .Product>img{
-    width: 12vw;
     height: 10vw;
     border: 3px solid #00CC00;
-
 }
 
 .Product{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
     padding: 10px;
     text-align: center;
-    justify-items: center;
+    justify-content: space-between;
     background-color: white;
-}
-
-.BusketModalItem{
-    display: flex;
-    font-size: 14px;
-    background-color: rgba(0,0,0,0.1);
-    margin: 2px;
     align-items: center;
-}
 
-.BusketModalItem>img{
-    height: 50px;
-    width: 60px;
-    border: 3px solid #00CC00;
-    margin: 5px;
+}
+.Product>div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 200px;
+}
+.Product>div>h1{
+    font-size: 24px;
+    padding: 10px;
+}
+.Product>div>div{
+    font-size: 20px;
+    padding-top: 10px;
+}
+#field{
+    display: grid;
+    grid-template-columns: 25vw 75vw;
+    height: 100%;
+}
+#filter{
+    height: 100%;
+    padding: 30px;
+    border-right: 2px solid #008500;
 }

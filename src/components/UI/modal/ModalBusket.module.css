@@ -19,6 +19,34 @@
     text-align: center;
     padding: 25px;
     background: white;
-    min-width: 80vw;
-    min-height: 50vh;
+    width: 70vw;
+    max-height: 80vh;
+}
+/*.ModalBusket>div>div>div{*/
+/*    display: flex;*/
+/*    flex-flow: column;*/
+/*    justify-content: space-between;*/
+/*    align-content: space-between;*/
+/*    justify-items: center;*/
+/*}*/
+.ModalBusket>div>div>div>div{
+    overflow-y: scroll;
+    max-height: 45vh;
+
+}
+
+.ModalBusket>div>div>div>h1{
+    color: #00CC00;
+    font-size: 56px;
+    padding: 20px;
+}
+.ModalBusket>div>div>div>div::-webkit-scrollbar {
+    background-color: white;
+}
+.ModalBusket>div>div>div>div::-webkit-scrollbar-thumb {
+    background-color: #00CC00;
+    border-radius: 5px;
+}
+.ModalBusket>div>div>div>div::-webkit-scrollbar-thumb:active{
+    background-color: #008500;
 }
