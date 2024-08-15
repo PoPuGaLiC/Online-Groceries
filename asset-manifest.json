@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/online-groceries/static/css/main.702d2ce2.css",
+    "main.js": "/online-groceries/static/js/main.7c472d12.js",
+    "static/media/milk.jpg": "/online-groceries/static/media/milk.23b70d1d0b7f2d1750f0.jpg",
+    "static/media/carrot.jpeg": "/online-groceries/static/media/carrot.1e56f94e50f5465a4dd1.jpeg",
+    "static/media/apple.png": "/online-groceries/static/media/apple.d7763c51b5f902bbdc29.png",
+    "static/media/apple.jpg": "/online-groceries/static/media/apple.e1c570d8a4bb7a96ef08.jpg",
+    "static/media/basket.png": "/online-groceries/static/media/basket.56746ecb291f52bc782c.png",
+    "index.html": "/online-groceries/index.html",
+    "main.702d2ce2.css.map": "/online-groceries/static/css/main.702d2ce2.css.map",
+    "main.7c472d12.js.map": "/online-groceries/static/js/main.7c472d12.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.702d2ce2.css",
+    "static/js/main.7c472d12.js"
+  ]
+}
