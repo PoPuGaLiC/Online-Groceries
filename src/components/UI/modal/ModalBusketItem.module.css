@@ -1,0 +1,153 @@
+@media (min-width:500px){
+    .BusketModalItem{
+        display: flex;
+        font-size: 30px;
+        background-color: rgba(0,0,0,0.1);
+        margin: 5px;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    .BusketModalItem>div>img{
+        height: 70px;
+        width: 120px;
+        border: 3px solid #00CC00;
+        margin: 5px;
+    }
+    .BusketModalItem>div{
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .ModalItem{
+        display: flex;
+        width: 100%;
+        justify-content:  space-between;
+        align-content: center;
+        align-items: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        height: 60px;
+    }
+
+    .ModalItem>div{
+        font-size: 24px;
+    }
+
+    .ButtonBuy{
+        width: 300px;
+        display: flex;
+        margin: 30px;
+        width: auto;
+        justify-content: center;
+        align-content: center;
+        background-color: #00CC00;
+        border-radius: 10px;
+    }
+
+    .ButtonBuy>input{
+        background-color: #00CC00;
+        color: white;
+        width: 80px;
+        height: 40px;
+        border: 0px;
+        border-left: 2px solid #bdff7a;
+        border-right: 2px solid #bdff7a;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .ButtonBuy>button{
+        align-content: center;
+        background-color: #00CC00;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        width: 60px;
+        padding: 5px;
+        margin: 0;
+        border: none;
+        height: 40px;
+        border-radius: 10px;
+    }
+}
+@media (max-width:500px){
+    .BusketModalItem{
+        display: flex;
+        font-size: clamp(1rem,0.1vw, 2rem);
+        background-color: rgba(0,0,0,0.1);
+        margin: 1px;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+                /*clamp(30px,0.5vw, 70px);*/
+    }
+
+    .BusketModalItem>div>img{
+        display: none;
+    }
+    .BusketModalItem>div{
+        font-size: clamp(1rem,0.2vw, 2rem);
+        margin: 1px;
+    }
+
+    .ModalItem{
+        display: flex;
+        width: 100%;
+        justify-content:  space-between;
+        align-content: center;
+        align-items: center;
+        height: 60px;
+        font-size: clamp(1rem,0.2vw, 2rem);
+    }
+
+    .ModalItem>div{
+        font-size:  clamp(1rem,0.2vw, 2rem);
+    }
+    .ModalItem>h1{
+        font-size:  clamp(1rem,0.2vw, 2rem);
+    }
+
+    .ButtonBuy{
+        width: 50px;
+        display: flex;
+        margin: 5px;
+        width: auto;
+        justify-content: center;
+        align-content: center;
+        background-color: #00CC00;
+        border-radius: 5px;
+    }
+
+    .ButtonBuy>input{
+        background-color: #00CC00;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border: 0px;
+        border-left: 2px solid #bdff7a;
+        border-right: 2px solid #bdff7a;
+        text-align: center;
+        font-size: clamp(1rem,0.2vw, 2rem);
+    }
+
+    .ButtonBuy>button{
+        align-content: center;
+        background-color: #00CC00;
+        color: white;
+        text-align: center;
+        font-size: clamp(1rem,0.2vw, 2rem);
+        width: 40px;
+        padding: 5px;
+        margin: 0;
+        border: none;
+        height: 40px;
+        border-radius: 10px;
+    }
+}
+
+.ButtonBuy>input::-webkit-outer-spin-button,
+.ButtonBuy>input::-webkit-inner-spin-button {
+    display: none;
+}

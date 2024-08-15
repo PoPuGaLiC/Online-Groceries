@@ -1,52 +1,100 @@
-.ModalBusket{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    display: none;
-    background: rgba(0,0,0,0.5);
-    width: 100vw;
-    height: 100vh;
-}
-.ModalBusket.active{
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-}
-.ModalBusketContent{
-    text-align: center;
-    padding: 25px;
-    background: white;
-    width: 70vw;
-    max-height: 80vh;
-}
-/*.ModalBusket>div>div>div{*/
-/*    display: flex;*/
-/*    flex-flow: column;*/
-/*    justify-content: space-between;*/
-/*    align-content: space-between;*/
-/*    justify-items: center;*/
-/*}*/
-.ModalBusket>div>div>div>div{
-    overflow-y: scroll;
-    max-height: 45vh;
+@media (min-width:500px){
+    .ModalBusket{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: none;
+        background: rgba(0,0,0,0.5);
+        width: 100vw;
+        height: 100vh;
+    }
+    .ModalBusket.active{
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        align-items: center;
+    }
+    .ModalBusketContent{
+        text-align: center;
+        padding: 25px;
+        background: white;
+        width: 70vw;
+        max-height: 80vh;
+    }
+    .description{
+        padding-bottom: 50px;
+        padding-top: 20px;
+        font-size: 30px;
+    }
 
+    .ModalBusket>div>div{
+        overflow-y: scroll;
+        max-height: 45vh;
+        min-height: 90px;
+    }
+
+    .ModalBusket>div>h1{
+        color: #00CC00;
+        font-size: 36px;
+        padding: 10px;
+    }
 }
 
-.ModalBusket>div>div>div>h1{
-    color: #00CC00;
-    font-size: 56px;
-    padding: 20px;
+@media (max-width:500px){
+    .ModalBusket{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: none;
+        background: rgba(0,0,0,0.5);
+        width: 100vw;
+        height: 100vh;
+    }
+    .ModalBusket.active{
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        align-items: center;
+    }
+    .ModalBusketContent{
+        text-align: center;
+        padding: 0.8vw;
+        background: white;
+        width: 70vw;
+        max-height: 80vh;
+    }
+
+    .description{
+        padding-bottom: 50px;
+        padding-top: 20px;
+        font-size: 30px;
+    }
+
+    .ModalBusket>div>div{
+        overflow-y: scroll;
+        max-height: 45vh;
+        min-height: 90px;
+    }
+
+    .ModalBusket>div>h1{
+        color: #00CC00;
+        font-size: clamp(1rem,0.8vw, 2rem);
+        padding: 0.1vw;
+    }
 }
-.ModalBusket>div>div>div>div::-webkit-scrollbar {
+
+.ModalBusket>div>div::-webkit-scrollbar {
     background-color: white;
 }
-.ModalBusket>div>div>div>div::-webkit-scrollbar-thumb {
+.ModalBusket>div>div::-webkit-scrollbar-thumb {
     background-color: #00CC00;
     border-radius: 5px;
 }
-.ModalBusket>div>div>div>div::-webkit-scrollbar-thumb:active{
+.ModalBusket>div>div::-webkit-scrollbar-thumb:active{
     background-color: #008500;
 }
+

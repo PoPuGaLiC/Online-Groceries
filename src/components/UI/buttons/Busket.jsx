@@ -1,8 +1,8 @@
-import "../styles/BusketItem.css"
-const BusketItem = (props) => {
+import "./Busket.css"
+const Busket = (props) => {
     return (
         <button onClick = {props.modal}>
-            <img  id = "basket" src={require('../img/basket.png')} alt={"description "} />
+            <img id = "basket" src = {require('../../../img/basket.png')} alt={"description "} />
             {(props.busketCount !== 0)
                 ?
                 (props.busketCount < 100)
@@ -16,4 +16,4 @@ const BusketItem = (props) => {
     );
 };
 
-export default BusketItem;
+export default Busket;

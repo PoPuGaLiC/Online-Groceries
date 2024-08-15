@@ -3,12 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial;
+    overflow: hidden;
 }
 #root{
     display: flex;
     justify-content: center;
 }
-
+h1{
+    text-align: center;
+    margin: 30px;
+}
 .App{
     display: grid;
     align-items: center;
@@ -16,56 +20,13 @@
 
 }
 
-.ProductList{
-    display: grid;
-    margin: 30px;
-    /*grid-auto-columns: minmax(auto, 30%);*/
-    justify-content: space-evenly;
-    grid-template-columns: repeat(4, 1fr);
-    background-color: lightgrey;
-    padding: 10px;
-
-}
-
-.Product>img{
-    height: 10vw;
-    border: 3px solid #00CC00;
-}
-
-.Product{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    justify-content: space-between;
-    background-color: white;
-    align-items: center;
-
-}
-.Product>div{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 200px;
-}
-.Product>div>h1{
-    font-size: 24px;
-    padding: 10px;
-}
-.Product>div>div{
-    font-size: 20px;
-    padding-top: 10px;
-}
 #field{
     display: grid;
     grid-template-columns: 25vw 75vw;
     height: 100%;
 }
 #filter{
-    height: 100%;
+    height:   calc(100vh - 130px);
     padding: 30px;
     border-right: 2px solid #008500;
 }

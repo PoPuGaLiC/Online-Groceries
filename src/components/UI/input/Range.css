@@ -1,0 +1,78 @@
+.Range{
+    margin: 0;
+}
+.RangeSlider {
+    height: 6px;
+    position: relative;
+    background-color: #e1e9f6;
+    border-radius: 2px;
+    /*margin: 15px;*/
+    z-index: 1;
+    top: 18px;
+}
+#RangeSelected {
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 6px;
+    background-color: #39E639;
+    z-index: 1;
+
+}
+.RangeInput {
+    position: relative;
+    height: 30px;
+    z-index: 3;
+}
+.RangeInput input {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    z-index: 3;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.RangeInput input::-webkit-slider-thumb {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid #39E639;
+    background-color: #fff;
+    pointer-events: auto;
+    -webkit-appearance: none;
+}
+.RangeInput input::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 3px solid #39E639;
+    background-color: #fff;
+    pointer-events: auto;
+    -moz-appearance: none;
+}
+.RangePrice {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RangePrice label {
+    margin-right: 5px;
+}
+.RangePrice input {
+    width: 100px;
+    padding: 5px;
+}
+.RangePrice input:first-of-type {
+    margin-right: 15px;
+}
+
+.RangePrice input::-webkit-outer-spin-button,
+.RangePrice input::-webkit-inner-spin-button {
+    display: none;
+}

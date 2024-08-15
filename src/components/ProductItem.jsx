@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import ButtonBuy from "./UI/buttons/ButtonBuy";
 const ProductItem = ({busket, ...props}) => {
@@ -9,9 +9,7 @@ const ProductItem = ({busket, ...props}) => {
             <img src={require('../img/products/'+props.product.imageName)} alt={"description "} />
             <div>
                 <div>{props.product.name}</div>
-                <h1>{props.product.cost} руб.</h1>
-                    {/*<h1>{props.product.name}</h1>*/}
-                    {/*<div>{props.product.cost} руб.</div>*/}
+                <h2>{props.product.cost} руб.</h2>
             </div>
             <ButtonBuy busket={busket} productBusket = {props.productBusket} id = {props.id} availability={props.product.availability}/>
         </div>
