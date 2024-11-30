@@ -1,8 +1,7 @@
 import React from 'react';
 
 import ButtonBuy from "./UI/buttons/ButtonBuy";
-const ProductItem = ({busket, ...props}) => {
-    // const [path,setPhoto] = useState()
+const ProductItem = ({...props}) => {
 
     return (
         <div className='Product'>
@@ -11,7 +10,9 @@ const ProductItem = ({busket, ...props}) => {
                 <div>{props.product.name}</div>
                 <h2>{props.product.cost} руб.</h2>
             </div>
-            <ButtonBuy busket={busket} productBusket = {props.productBusket} id = {props.id} availability={props.product.availability}/>
+            <ButtonBuy
+            id = {props.id}
+            availability={props.product.availability}/>
         </div>
     );
 };

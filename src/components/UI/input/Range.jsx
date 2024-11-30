@@ -1,41 +1,45 @@
 import React from 'react';
 import "./Range.css"
+import { useDispatch, useSelector } from 'react-redux'
 const Range = (props) => {
+    const priceRange= {min:0,max:150}
+    const dispatch = useDispatch()
+    const price = useSelector(state => state.catalog.filter.price)
+    
     function changeRangeInput(e,rs, ri1,ri2){
-        let rangeMin = 0;
         let minRange = parseInt(ri1);
         let maxRange = parseInt(ri2);
-        if (minRange<0){
-            minRange=0
+        if (minRange<priceRange.min){
+            minRange=priceRange.min
         }
 
-        if (minRange>100){
-            minRange=100
-            maxRange=100
+        if (minRange>priceRange.max){
+            minRange=priceRange.max
+            maxRange=priceRange.max
         }
-        if (minRange<0){
-            minRange=0
-            maxRange=0
+        if (minRange<priceRange.min){
+            minRange=priceRange.min
+            maxRange=priceRange.min
         }
-        if (maxRange>100){
-            maxRange=100
+        if (maxRange>priceRange.max){
+            maxRange=priceRange.max
         }
-        if (maxRange - minRange < rangeMin) {
+        if (maxRange - minRange < 0) {
             if (e.target.className === "min") {
-                ri1= maxRange - rangeMin;
+                ri1= maxRange - 0;
             } else {
-                ri2= minRange + rangeMin;
+                ri2= minRange + 0;
             }
         } else {
             ri1 = minRange;
             ri2 = maxRange;
-            rs.style.left = (minRange / 100) * 100 + "%";
-            rs.style.right = 100 - (maxRange / 100) * 100 + "%";
+            rs.style.left = (minRange / priceRange.max) * 100 + "%";
+            rs.style.right = 100 - (maxRange / priceRange.max) * 100 + "%";
         }
+        dispatch({ type: "FILTER_PRICE", payload: {min:ri1,max:ri2}})
 
-        props.setMinCost(ri1)
-        props.setMaxCost(ri2)
     }
+
 
 
     return (
@@ -47,9 +51,9 @@ const Range = (props) => {
                 <input
                     type="range"
                     className="min"
-                    min="0"
-                    max="100"
-                    value={props.minCost}
+                    min={priceRange.min}
+                    max={priceRange.max}
+                    value={price.min}
                     step="1"
                     onChange={e => changeRangeInput(e,document.getElementById('RangeSelected'), e.target.value, e.target.nextElementSibling.value)}
                 >
@@ -57,9 +61,9 @@ const Range = (props) => {
                 <input
                     type="range"
                     className="max"
-                    min="0"
-                    max="100"
-                    value={props.maxCost}
+                    min={priceRange.min}
+                    max={priceRange.max}
+                    value={price.max}
                     step="1"
                     onInput={e => changeRangeInput(e,document.getElementById('RangeSelected'),  e.target.previousElementSibling.value, e.target.value)}
                 >
@@ -70,7 +74,7 @@ const Range = (props) => {
                 <input
                     type="number"
                     name="min"
-                    value={props.minCost}
+                    value={price.min}
                     onChange={e => changeRangeInput(e,document.getElementById('RangeSelected'), e.target.value, e.target.nextElementSibling.nextElementSibling.value)}
                 >
                 </input>
@@ -78,7 +82,7 @@ const Range = (props) => {
                 <input
                     type="number"
                     name="max"
-                    value={props.maxCost}
+                    value={price.max}
                     onChange={e => changeRangeInput(e,document.getElementById('RangeSelected'),  e.target.previousElementSibling.previousElementSibling.value, e.target.value)}
                 >
                 </input>

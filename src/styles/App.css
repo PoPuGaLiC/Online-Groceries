@@ -30,3 +30,14 @@ h1{
     padding: 30px;
     border-right: 2px solid #008500;
 }
+@media (max-width:1000px) {
+    #field {
+        display: flex;
+        flex-direction: column;
+    }
+    #filter{
+        height:   auto;
+        border: none;
+    }
+
+}

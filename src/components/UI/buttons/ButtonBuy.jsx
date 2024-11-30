@@ -1,17 +1,18 @@
 import React from 'react';
 import cl from "./ButtonBuy.module.css";
-const ButtonBuy = ({busket, productBusket, ...props}) => {
-    const addItem = (e) =>{
-        let product = productBusket.find(x => x.id === props.id)
-        if(product){
-            busket(props.id, product.count + 1)
-        }else{
-            busket(props.id, 1)
-        }
-    }
+
+import { useDispatch, useSelector } from 'react-redux'
+
+const ButtonBuy = ({...props}) => {
+    const dispatch = useDispatch();
+    const busket = useSelector(state => state.busket.busket);
+    const product = busket.find(x => x.id === props.id);
+    const count = ( product !== undefined) ? product.count + 1  : 1;
     return (
         <button className = {cl.ButtonBuy}
-            onClick = {addItem}
+            onClick = {() => {
+                dispatch({ type: "CHANGE_BUSKET", payload: {id: props.id, count: count} });
+            }}
             disabled = {!props.availability}
         >
             Купить

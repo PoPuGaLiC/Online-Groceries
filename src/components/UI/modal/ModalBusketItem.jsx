@@ -1,6 +1,10 @@
 import cl from "./ModalBusketItem.module.css"
 
+import { useDispatch, useSelector } from 'react-redux'
 const ModalBusketItem = (props) => {
+    const dispatch = useDispatch()
+    
+    const busket = useSelector(state => state.busket.busket)
     return (
         <div className = {cl.BusketModalItem}>
             <div>
@@ -15,7 +19,7 @@ const ModalBusketItem = (props) => {
                         onClick = {(e)=>{
                             let currentVal= Number(e.target.nextElementSibling.value)
                             e.target.nextElementSibling.value = currentVal - 1;
-                            props.changeProductBusket(props.product.id, currentVal - 1)
+                            dispatch({ type: "CHANGE_BUSKET", payload: {id: props.product.id, count:  currentVal-1} });
                         }}>-
                 </button>
                 <input
@@ -23,8 +27,9 @@ const ModalBusketItem = (props) => {
                     maxLength = {3}
                     value = {props.value}
                     onChange = {e=>{
+                        
                         if(e.target.value <= 100){
-                            props.changeProductBusket(props.product.id, Number(e.target.value))
+                            dispatch({ type: "CHANGE_BUSKET", payload: {id: props.product.id, count:  Number(e.target.value)} });
                         }
                     }}
                 />
@@ -33,7 +38,8 @@ const ModalBusketItem = (props) => {
                             let currentVal= Number(e.target.previousElementSibling.value);
                             if (currentVal < 100){
                                 e.target.previousElementSibling.value = currentVal + 1;
-                                props.changeProductBusket(props.product.id, currentVal + 1)
+                                
+                            dispatch({ type: "CHANGE_BUSKET", payload: {id: props.product.id, count:  currentVal+1} });
                             }}}>+
                 </button>
             </div>

@@ -1,13 +1,19 @@
 import React from 'react';
 import cl from "./ModalBusket.module.css"
 import ModalBusketItem from "./ModalBusketItem";
+import { useSelector } from 'react-redux'
 const ModalBusket = ({visible,setVisible, ...props}) => {
+    
+    const products = useSelector(state => state.catalog.data)
+    const busket = useSelector(state => state.busket.busket)
+    const busketCount = useSelector(state => state.busket.busketCount)
+
     const rootClasses =[cl.ModalBusket]
     if (visible){
         rootClasses.push(cl.active)
     }
 
-    if (props.productBusket.length === 0){
+    if (busketCount === 0){
         return (
             <div className={rootClasses.join(" ")}
                  onClick={() => setVisible(false)}
@@ -31,17 +37,15 @@ const ModalBusket = ({visible,setVisible, ...props}) => {
             >
                 <h1>Корзина</h1>
                 <div>
-                    {props.productBusket.map(productItem => {
+                    {busket.map(productItem => {
                         return <ModalBusketItem
                             key = {productItem.id}
-                            product = {props.products.find(x=>x.id===productItem.id)}
+                            product = {products.find(x=>x.id===productItem.id)}
                             value={productItem.count}
-                            productBusket = {props.productBusket}
-                            changeProductBusket = {props.changeProductBusket}
                         />;})}
                 </div>
-                <h1>Общая сумма заказа: {props.productBusket.reduce((sum,x)=>{
-                    return sum+x.count*props.products.find(p=>p.id===x.id).cost
+                <h1>Общая сумма заказа: {busket.reduce((sum,x)=>{
+                    return sum+x.count*products.find(p=>p.id===x.id).cost
                 },0).toFixed(2)} руб.</h1>
             </div>
         </div>
