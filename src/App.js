@@ -17,7 +17,7 @@ import Types from "./components/UI/input/Types";
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <div>Hello Router!</div>,
+		
 	},
 ]);
 function App() {
